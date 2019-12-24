@@ -3,10 +3,13 @@
 #include <stdlib.h>
 #include <pthread.h>
 #define MAX 10
+
 pthread_mutex_t M; /* def.mutex condiviso tra threads */
 int DATA=0; /* variabile condivisa */
 int accessi1=0; /*num. di accessi del thread 1 alla sez crit. */
 int accessi2=0; /*num. di accessi del thread 2 alla sez crit. */
+
+
 void *thread1_process (void * arg)
 { int k=1;
     while(k)
@@ -20,6 +23,8 @@ void *thread1_process (void * arg)
     }
     pthread_exit (0);
 }
+
+
 void *thread2_process (void * arg)
 { int k=1;
     while(k)
@@ -33,6 +38,8 @@ void *thread2_process (void * arg)
     }
     pthread_exit (0);
 }
+
+
 main()
 { pthread_t th1, th2;
     /* il mutex e` inizialmente libero: */
